@@ -1,31 +1,18 @@
 
 public class WageUC2 {
-	private String employeeName;
-    private int hours;
-    private double rate, pay;
-
-    public void setEmployeeName ( String name )
-    {
-        employeeName = name;
-    }
-    public String getEmployeeName()
-    {
-        return employeeName;
-    }
-    public double calculatePay( int hours, double rate )
-    {
-        if ( hours > 40 )
-        { 
-            int extraHours = hours - 40;
-            pay = ( 40 * rate ) + ( extraHours * rate );
-        }
-        else pay = hours * rate;
-
-        return pay;
-    }
-    public void displayEmployee()
-    {
-        System.out.printf( "Employee's name: %s", getEmployeeName() );
-        System.out.printf( "\nGross Salary: ", + pay );
-    }
+	public static void main(String[] args) {
+		int IS_PRESENT = 1;
+		int EMP_WAGE_PER_HR = 20;
+		int attendance =  (int) (Math.floor(Math.random()*10)%2);
+		if (attendance == IS_PRESENT) {
+			System.out.println("employee is present");
+			int WORKING_HRS = 8;
+			int EmpWage = WORKING_HRS*EMP_WAGE_PER_HR;
+			System.out.println(EmpWage);
+		}
+		else {
+			System.out.println("employee is absent");
+		}
+	}
 }
+	

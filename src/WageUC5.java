@@ -1,41 +1,29 @@
 
 public class WageUC5 {
 	
-	private String employeid;
-    private String empname;
-    private int basicsalary,HRA,DA,GS,incometax,netsalary;
-    public void read()
-    {
-    	Scanner scan= new Scanner(System.in);
-       System.out.println("Enter the employee id");//taking all the inputs from the user
-       employeid=scan.next();
-       System.out.println("Enter the employee name");
-       empname=scan.next();
-       System.out.println("Enter the basic salary of an employee");
-       basicsalary=scan.nextInt();
-       calculate();
-    }
-    public void calculate()  
-    {
-       HRA=(10/100)*basicsalary;
-       DA=(73/100)*basicsalary;
-       GS=basicsalary+DA+HRA;
-       incometax=(30/100)*GS;
-       netsalary=GS-incometax;
-    }
-    public void display()  
-    {
-       System.out.println("Employeeid  :  "+employeid+"n"+"Employename  :  "+empname+"n"+"Employee basic salary :  "+basicsalary+"n"+"HRA  :  "+HRA+"n"+"DA  :  "+DA+"n"+"GS  :  "+GS+"n"+"Incometax  :  "+incometax+"n"+"netsalary  :  "+netsalary);
-    }
-
-}
-class main //main function
-{
-    public static void main(String args[])
-    {
-        WageUC5 employeobj=new WageUC5();
-        employeobj.read(); 
-        employeobj.display(); 
-    }
-
+	public static void main(String[] args) {
+		int IS_FULLTIME = 1;
+		int IS_PARTTIME = 2;
+		int Tdays = 20;
+		int EMP_WAGE_PER_HR = 20;
+		int sumofsalary=0;
+		int wage=0;
+		for (int i = 1; i <=Tdays; i++) {
+			int attendance =  (int) (Math.floor(Math.random()*10)%3);
+			if (attendance == IS_FULLTIME) {
+				int WORKING_HRS = 16;
+				wage=EMP_WAGE_PER_HR*WORKING_HRS;
+				sumofsalary = sumofsalary+wage;
+			}
+			else if (attendance == IS_PARTTIME) {
+				int WORKING_HRS = 8;
+				wage=EMP_WAGE_PER_HR*WORKING_HRS;
+				sumofsalary = sumofsalary+wage;
+			}
+			else {
+				sumofsalary = sumofsalary+wage;
+			}
+		}
+		System.out.println("total salary:" +sumofsalary);
+	}
 }
